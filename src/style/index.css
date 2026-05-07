@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: InterVariable, sans-serif;
+    --font-sans--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    --font-roboto: "Roboto Mono", monospace;
+    --font-raleway: "Raleway", sans-serif;
+}
+
+@layer components {
+    .btn-nav {
+        @apply px-4 py-2 bg-white text-gray-800 rounded-md shadow-sm cursor-pointer hover:bg-gray-100 transition;
+    }
+
+    .list-opc {
+        @apply text-base text-white/40 p-2 cursor-pointer rounded-xl hover:bg-gray-500/20 hover:text-white;
+    }
+
+    .pertenece-dato {
+        @apply flex flex-row justify-between text-white/40;
+    }
+
+    .valor-dato {
+        @apply text-white;
+    }
+}
