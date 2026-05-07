@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>ClimAap</title>
     <link rel="stylesheet" href="/src/style/index.css">
     <!-- Fuentes -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
@@ -21,20 +21,16 @@
 
 <body class="box-content bg-gray-600 font-raleway font-extralight">
     <video class="absolute -z-1 top-0 left-0 object-cover h-screen w-screen" autoplay loop muted playsinline
-        src="/public/28236-368501609.mp4"></video>
+        src="/28236-368501609.mp4"></video>
 
-    <section class="z-1 flex justify-between h-screen w-full relative text-white">
+    <section class="z-1 flex flex-col lg:flex-row justify-between h-screen w-full relative text-white">
         <!-- Seccion izquierda. -->
-        <div class="w-full h-full flex flex-col justify-center px-10 py-10">
-            <!-- Seccion de -->
-            <div class="h-1/8 flex items-center ">
-                <p>El clima con <a href="https://github.com/Dabson10" target="_blank">Dabson</a>.</p>
-            </div>
-            <div class="h-full flex items-end gap-5 ">
-                <p class="text-8xl font-normal">08°</p>
+        <div class="w-full h-full flex flex-col  justify-center px-10 py-10">
+            <div class="h-full flex items-end lg:gap-5 gap-2">
+                <p class="text-4xl lg:text-8xl font-normal">08°</p>
                 <div class="">
-                    <p class="text-4xl">Ciudad de México</p>
-                    <p class="text-xl">
+                    <p class="text-lg lg:text-5xl">Ciudad de México</p>
+                    <p class="flex lg:gap-5 gap-2  lg:text-3xl ">
                         <span>09:05</span>
                         <span>Miercoles</span>
                         <span>06/May/26</span>
@@ -55,8 +51,9 @@
             </div>
         </div>
         <!-- Seccion derecha. -->
-        <main class="w-1/2 h-full px-10 flex flex-col items-center  bg-white/10 backdrop-blur-xs text-white">
-
+        <main
+            class="flex w-full lg:w-1/2 h-auto px-10 flex-col-reverse items-center  bg-white/10 backdrop-blur-xs text-white lg:flex-col">
+            <!-- Buscador -->
             <div class="flex justify-center pt-3 mb-5 gap-5 w-full ">
                 <input class="text-lg px-7 border-b  focus:border-blue-400 outline-none" type="text"
                     placeholder="Ingrese una ciudad." required autocomplete="address-level1">
@@ -67,8 +64,21 @@
                         d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
             </div>
+            <!-- Extender -->
+            <div class="flex w-full justify-center gap-5 cursor-pointer lg:hidden" id="extender">
+                <svg class="size-6 transition duration-700 ease-in-out svg-bnt" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+                Extender
+                <svg class="size-6 transition duration-700 ease-in-out  svg-bnt" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+
+            </div>
             <!-- Ciudades de atajo. -->
-            <div class="flex flex-col w-full  gap-3 border-y border-white/20 py-10 ">
+            <div id="ciudAtajo" class="hidden lg:flex flex-col w-full gap-3 border-y border-white/20 py-10">
                 <p class="text-sm">Ciudades predeterminadas.</p>
                 <ul>
                     <li class="list-opc">México - Ciudad de México</li>
@@ -76,16 +86,22 @@
                     <li class="list-opc">Brasil - São Paulo</li>
                 </ul>
             </div>
-            <div class="flex flex-col w-full py-8 gap-5">
+            <!-- Información simple -->
+            <div id="infoSimple" class="hidden lg:flex flex-col w-full py-8 gap-5">
                 <p class="text-sm">Detalles del clima.</p>
-                <div class="flex flex-col gap-3">
+                <!-- <div class="flex flex-col gap-3">
                     <p class="pertenece-dato">Nubes <span class="valor-dato">20%</span></p>
                     <p class="pertenece-dato">Viento <span class="valor-dato">15km/h</span></p>
                     <p class="pertenece-dato">LLuvia <span class="valor-dato">defe</span></p>
-                </div>
+                </div> -->
             </div>
+            <footer class="lg:mt-auto py-2 text-sm">
+                <p>El clima, hecha por<a class="hover:bg-pink-700 rounded-md p-1" href="https://github.com/Dabson10"
+                        target="_blank">Dabson</a>.</p>
+            </footer>
         </main>
     </section>
+    <script src="/js/index.js"></script>
 </body>
 
 </html>
