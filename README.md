@@ -3,7 +3,7 @@ _Este proyecto es simple una pagina web que cuenta con un buscador en este caso 
 saber el clima y otros datos fundamentales, es totalmente dinamico ya sea el clima en el que esta la ciudad._
 
 # Por que del proyecto.
-_Este proyecto fue hecho mas que nada para probar tecnologias de diseño como `Tail` 
+_Este proyecto fue hecho mas que nada para probar tecnologias de diseño como `Tailwindcss` 
 para experimentar con nuevas tecnologias._
 _Aparte este proyecto fue para darme un rato de Java ya que me senti bloqueado con algunas partes 
 de un proyecto, por lo que busque un distractor benefico._
