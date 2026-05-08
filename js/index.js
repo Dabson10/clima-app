@@ -76,7 +76,7 @@ function maquetarDatos(datos) {
     const img = document.getElementById('icono-clima');
     const url_img = 'https://openweathermap.org/img/wn/';
     const video = document.getElementById('vid-fondo');
-    const videoUrl = '/public/'
+    const videoUrl = '/'
     let videoClima = climas.get(datos.weather[0].main);
 
 
