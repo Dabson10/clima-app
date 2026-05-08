@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     traerCiudad();
     obtenerCiudad();
+    cerrarAlerta();
 });
 
 
@@ -70,6 +71,7 @@ function obtenerCiudad() {
  * @param {*} datos 
  */
 function maquetarDatos(datos) {
+    const datosIn = document.getElementById('inp-ciudad');
     const contenedor = document.getElementById('contData');
     const grad = document.getElementById('text-grados');
     const ciudad = document.getElementById('text-ciudad');
@@ -104,6 +106,8 @@ function maquetarDatos(datos) {
     }
     // Hora y fecha 
     fechaYHora(datos.timezone);
+    //Borramos la barra de busqueda.
+    datosIn.value = '';
 }
 
 /**
@@ -112,12 +116,24 @@ function maquetarDatos(datos) {
  * @returns 
  */
 function estadoConsulta(estado) {
+    const contAlert = document.getElementById('cont-alert');
+    const datosIn = document.getElementById('inp-ciudad');
+
     if (estado === '404') {
         //Aqui abrimos una alerta para avisar que no se encontro una ciudad.
-        console.log('Ubicacion no encontrada.');
+        contAlert.classList.remove('hidden');
+        datosIn.value = '';
         return false;
     }
     return true;
+}
+
+function cerrarAlerta() {
+    const btnCerrar = document.getElementById('btn-cerrar');
+    const contAlert = document.getElementById('cont-alert');
+    btnCerrar.addEventListener('click', () => {
+        contAlert.classList.toggle('hidden');
+    });
 }
 
 /**
