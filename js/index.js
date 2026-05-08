@@ -36,6 +36,9 @@ function mostrarPanel(btnExtender) {
     });
 }
 
+/**
+ * Esta función es para cuando se precione el boton de buscar.
+ */
 function obtenerCiudad() {
     const datosIn = document.getElementById('inp-ciudad');
     const btnIn = document.getElementById('btn-buscar');
@@ -55,7 +58,6 @@ function obtenerCiudad() {
             if (!encontrado) return;
             //Si es un true entonces seguimos y maquetamos.
             maquetarDatos(datosCity);
-            console.log(datosCity);
 
         } catch (error) {
             console.log(`Error del tipo: ${error}`);
@@ -63,6 +65,10 @@ function obtenerCiudad() {
     });
 }
 
+/**
+ * En base a los datos obtenidos de la api, maquetaremos los datos mas importantes.
+ * @param {*} datos 
+ */
 function maquetarDatos(datos) {
     const contenedor = document.getElementById('contData');
     const grad = document.getElementById('text-grados');
@@ -100,7 +106,11 @@ function maquetarDatos(datos) {
     fechaYHora(datos.timezone);
 }
 
-
+/**
+ * Servira para hacer una alerta en la cual se mostrara que la info o el lugar ingresado no existe.
+ * @param {*} estado 
+ * @returns 
+ */
 function estadoConsulta(estado) {
     if (estado === '404') {
         //Aqui abrimos una alerta para avisar que no se encontro una ciudad.
@@ -110,11 +120,12 @@ function estadoConsulta(estado) {
     return true;
 }
 
+/**
+ * Funcion para formatear unos datos iniciales al abrir la app.
+ */
 async function traerCiudad() {
     try {
         const datos = await inicio();
-        console.log(datos);
-
         maquetarDatos(datos);
     } catch (error) {
         console.log(`Error del tipo: ${error}`)
@@ -122,6 +133,10 @@ async function traerCiudad() {
 }
 
 
+/**
+ * Esta función es para hacer la hora y fecha del lugar que ingresamos o buscamos
+ * @param {*} timezone 
+ */
 function fechaYHora(timezone) {
     const contHora = document.getElementById('hora');
     const contFecha = document.getElementById('fecha');
